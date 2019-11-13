@@ -48,7 +48,7 @@
 	echo $args['before_title'] . $title . $args['after_title'];
 
 	// Aquí es donde debemos introducir el código que queremos que se ejecute
-	echo $direccion ;
+	echo 'Dirección: ' , $direccion ;
 	echo $args['after_widget'];
 	}
 			
