@@ -40,7 +40,7 @@
 
 	public function widget( $args, $instance ) {
 	$title = apply_filters( 'widget_title', $instance['title'] );
-	$direccion = apply_filters( 'widget_title', $instance['text'] );
+	$direccion = apply_filters( 'widget_title', $instance['direccion'] );
 		
 	// los argumentos del antes y después del widget vienen definidos por el tema
 	echo $args['before_widget'];
