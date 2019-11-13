@@ -1,0 +1,42 @@
+<?php
+include("./gestionBD.php");
+function handler($pdo,$table)
+{
+    
+    $rows=consultar($pdo,$table);
+   
+    if (is_array($rows)) {/* Creamos un listado como una tabla HTML*/
+        print '<table><thead>';
+        foreach ( array_keys($rows[0])as $key) {
+              echo "<th>", $key,"</th>";
+          
+        }
+        print "<th> acciones </th>";
+        print "</thead>";
+        foreach ($rows as $row) {
+            print "<tr>";
+            foreach ($row as $key => $val) {
+                echo "<td>", $val, "</td>";
+                $identificador = $row["client_id"];
+            }
+
+            ?>
+
+            <td> <button><a href="<?php print "portal.php?action=formUpdate&id=$identificador" ?>">Modificar</a></button> 
+                 <button><a href="<?php print "portal.php?action=delete&id=$identificador" ?>">Borrar</a></button></td>
+            <?php 
+            
+        }
+        print "</table>";
+    }
+}
+$table = "A_cliente";
+
+
+try{handler($pdo,$table);}
+catch (PDOException $e) {
+echo "Failed to get DB handle: " . $e->getMessage() . "\n";
+exit;
+}
+
+    ?>
