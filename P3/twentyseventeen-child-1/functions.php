@@ -7,7 +7,7 @@
   return $the_New_Post;
   }
 
-	/*
+		/*
 	Plugin Name: plugin-widget-1
 	Description: Este plugin añade un widget que pone un título y una descripción.
 	Author: nachomestre
@@ -20,19 +20,19 @@
 
 	// Registramos el widget
 	function load_my_widget() {
-		register_widget( 'plugin_widget_1' );
+		register_widget( 'my_widget1' );
 	}
 	add_action( 'widgets_init', 'load_my_widget' );
 
 	// Creamos el widget 
-	class plugin_widget_1 extends WP_Widget {
+	class my_widget1 extends WP_Widget {
 
 	public function __construct() {
 			$widget_ops = array( 
-				'classname' => 'plugin_widget_1',
-				'description' => 'widget de prueba',
+				'classname' => 'my_widget',
+				'description' => 'My Widget is awesome',
 			);
-			parent::__construct( 'plugin_widget_1', 'Widget de Prueba', $widget_ops );
+			parent::__construct( 'my_widget1', 'My Widget1', $widget_ops );
 		}	
 
 
@@ -40,34 +40,36 @@
 
 	public function widget( $args, $instance ) {
 	$title = apply_filters( 'widget_title', $instance['title'] );
-
+	$direccion = apply_filters( 'widget_title', $instance['text'] );
+		
 	// los argumentos del antes y después del widget vienen definidos por el tema
 	echo $args['before_widget'];
-	if ( ! empty( $nombre_tienda ) )
-	echo $args['before_title'] . $nombre_tienda . $args['after_title'];
+	if ( ! empty( $title ) )
+	echo $args['before_title'] . $title . $args['after_title'];
 
 	// Aquí es donde debemos introducir el código que queremos que se ejecute
-	echo 'Dirección: ' , $direccion ;
+	echo $direccion ;
 	echo $args['after_widget'];
 	}
 			
 	// Backend  del widget
 	public function form( $instance ) {
-	if ( isset( $instance[ 'nombre_tienda' ] ) ) {
-	$nombre_tienda = $instance[ 'nombre_tienda' ];
+	if ( isset( $instance[ 'title' ] ) ) {
+	$title = $instance[ 'title' ];
+	$direccion = $instance[ 'direccion' ];
 	}
 	else {
-	$nombre_tienda = __( 'Nombre de la tienda', 'my_widget_domain' );
-	$direccion = __( 'Direccion de la tienda', 'my_widget_domain' );
+	$title = __( 'Titulo', 'my_widget_domain' );
+	$direccion = __( 'Direccion', 'my_widget_domain' );
 	}
 	// Formulario del backend
 	 ?>
 	<p>
-	<label for="<?php echo $this->get_field_id( 'nombre_tienda' ); ?>"><?php _e( 'Nombre de la tienda:' ); ?></label> 
-	<input class="widefat" id="<?php echo $this->get_field_id( 'nombre_tienda' ); ?>" name="<?php echo $this->get_field_name( 'nombre_tienda' ); ?>" type="text" value="<?php echo esc_attr( $nombre_tienda ); ?>" />
+	<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Nombre de la tienda:' ); ?></label> 
+	<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
 	</p>
 	<p>
-	<label for="<?php echo $this->get_field_id( 'direccion' ); ?>"><?php _e( 'Direccion de la tienda:' ); ?></label> 
+	<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Direccion:' ); ?></label> 
 	<input class="widefat" id="<?php echo $this->get_field_id( 'direccion' ); ?>" name="<?php echo $this->get_field_name( 'direccion' ); ?>" type="text" value="<?php echo esc_attr( $direccion ); ?>" />
 	</p>
 	<?php	
@@ -75,7 +77,7 @@
 	// Actualizamos el widget reemplazando las viejas instancias con las nuevas
 	public function update( $new_instance, $old_instance ) {
 	$instance = array();
-	$instance['nombre_tienda'] = ( ! empty( $new_instance['nombre_tienda'] ) ) ? strip_tags( $new_instance['nombre_tienda'] ) : '';
+	$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
 	$instance['direccion'] = ( ! empty( $new_instance['direccion'] ) ) ? strip_tags( $new_instance['direccion'] ) : '';
 	return $instance;
 	}
