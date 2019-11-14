@@ -132,7 +132,7 @@ function MP2_my_datos_2()
                 }
                 print "</th>";
                 foreach ($rows as $row) {
-                    print "<tr>";
+                    print "<tr><td></td>";
                     foreach ($row as $key => $val) {
                         echo "<td>", $val, "</td>";
                     }
