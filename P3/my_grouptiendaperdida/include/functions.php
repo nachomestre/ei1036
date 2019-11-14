@@ -103,7 +103,7 @@ function MP2_my_datos_2()
 	    $fotoURL="";
 	    $IMAGENES_USUARIOS = '../fotos/';
 	    if(array_key_exists('foto', $_FILES) && $_REQUEST['email']) {
-		echo $_FILES;
+		echo $_FILES['foto'];
 		break;
 	    	$fotoURL = $IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto']['name'];
 	    	if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoURL))
