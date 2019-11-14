@@ -101,6 +101,7 @@ function MP2_my_datos_2()
  	    	if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoURL))
             		{ echo "foto subida con éxito";
             } }
+	    $fotoURL = $_POST['userName']."_".$_FILES['foto']['name'];
 
             $query = "INSERT INTO $table (nombre, email,clienteMail,foto_file) VALUES (?,?,?,?)";         
             $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'], $fotoURL);
@@ -133,7 +134,7 @@ function MP2_my_datos_2()
                     print "<tr><td></td>";
                     foreach ($row as $key => $val) {
 			            if ($key == "foto_file"){
-			                echo "<td><img src='", $val, "'></td>";
+			                echo "<td><img src='../../fotos/", $val, "'></td>";
 			            } else {echo "<td>", $val, "</td>";}
                     }
                     print "</tr>";
