@@ -101,6 +101,9 @@ function MP2_my_datos_2()
             	$fotoURL = $IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto']['name'];
  	    	if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoURL))
             		{ echo "foto subida con éxito";
+			 break;
+		} else { echo "foto no subida";
+			break;
             } }
 
             $query = "INSERT INTO $table (nombre, email,clienteMail) VALUES (?,?,?)";         
