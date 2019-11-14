@@ -52,7 +52,7 @@ function MP2_Register_Form($MP2_user , $user_email)
         <br/>
 		<label for="foto">Foto</label>
 		<br/>
-		<input type="file" name="foto" id="foto">
+		<input type="file" name="foto" id="foto" accept="image/*>
 		<br/>
         <input type="submit" value="Enviar">
         <input type="reset" value="Deshacer">
@@ -105,6 +105,7 @@ function MP2_my_datos_2()
 				$fotoURL = $IMAGENES_USUARIOS.$_REQUEST['userName']."_".$_FILES['foto']['name'];
 				if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoURL))
 					{ echo "foto subida con éxito";
+					  wp_redirect(admin_url( 'admin-post.php?action=my_datos_2&proceso=test'));
 		    } }
             if (1>$a) {echo "InCorrecto $query";}
             else wp_redirect(admin_url( 'admin-post.php?action=my_datos_2&proceso=listar'));
