@@ -33,9 +33,7 @@ function MP2_Register_Form($MP2_user , $user_email)
     ?>
     <h1>Gestión de Usuarios </h1>
     <form class="fom_usuario" action="?action=my_datos_2&proceso=registrar" method="POST" enctype="multipart/form-data">
-        <label for="clienteMail">Tu correo</label>
-        <br/>
-        <input type="text" name="clienteMail"  size="20" maxlength="25" value="<?php print $user_email?>"
+        <input type="hidden" name="clienteMail"  size="20" maxlength="25" value="<?php print $user_email?>"
         readonly />
         <br/>
         <legend>Datos básicos</legend>
