@@ -106,6 +106,7 @@ function MP2_my_datos_2()
 	    	$fotoURL = __DIR__.$IMAGENES_USUARIOS.$_REQUEST['userName']."_".$_FILES['foto']['name'];
 		echo var_dump($_FILES['foto']);
 		echo var_dump($fotoURL);
+		echo "<img src='" , $_FILES['foto']['tmp_name'] , ">";
 		break;
 	    	if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoURL))
 	    		{ echo "foto subida con éxito";
