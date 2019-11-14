@@ -50,10 +50,11 @@ function MP2_Register_Form($MP2_user , $user_email)
         <input type="text" name="email" class="item_requerid" size="20" maxlength="25" value="<?php print $MP2_user["email"] ?>"
         placeholder="kiko@ic.es" />
         <br/>
-		<label for="foto">Foto</label>
-		<br/>
-		<input type="file" name="foto" id="foto" accept="image/*>
-		<br/>
+	<label for="foto">Foto</label>
+	<br/>
+	<input type="file" name="foto" id="foto" accept="image/*>
+	<br/>
+	<br/>
         <input type="submit" value="Enviar">
         <input type="reset" value="Deshacer">
     </form>
