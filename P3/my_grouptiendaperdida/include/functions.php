@@ -101,13 +101,10 @@ function MP2_my_datos_2()
             	$fotoURL = __DIR__.$IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto']['name'];
  	    	if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoURL))
             		{ echo "foto subida con éxito";
-			 break;
-		} else { echo "foto no subida";
-			break;
             } }
 
-            $query = "INSERT INTO $table (nombre, email,clienteMail) VALUES (?,?,?)";         
-            $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'] );
+            $query = "INSERT INTO $table (nombre, email,clienteMail,foto_file) VALUES (?,?,?,?)";         
+            $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'], $fotoURL);
             //$pdo1 = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
             $consult = $MP2_pdo->prepare($query);
             $a=$consult->execute($a);
