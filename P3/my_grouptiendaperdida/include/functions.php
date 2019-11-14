@@ -27,13 +27,6 @@ function MP2_CrearT($tabla){
     $consult->execute (array());
 }
 
-function MP2_BorrarT($tabla){
-    $MP2_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
-    $query="DROP TABLE $tabla"
-    $consult = $MP2_pdo->prepare($query);
-    $consult->execute (array());
-}
-
 
 function MP2_Register_Form($MP2_user , $user_email)
 {//formulario registro amigos de $user_email
