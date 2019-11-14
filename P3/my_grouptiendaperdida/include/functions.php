@@ -52,7 +52,7 @@ function MP2_Register_Form($MP2_user , $user_email)
         <br/>
 	<label for="foto">Foto</label>
 	<br/>
-	<input type="file" name="foto" id="foto" accept="image/*>
+	<input type="file" name="foto" id="foto" accept="image/*">
 	<br/>
 	<br/>
         <input type="submit" value="Enviar">
