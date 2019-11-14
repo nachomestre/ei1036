@@ -104,6 +104,7 @@ function MP2_my_datos_2()
 	    $IMAGENES_USUARIOS = '../fotos/';
 	    if(array_key_exists('foto', $_FILES) && $_REQUEST['email']) {
 		echo var_dump($_FILES['foto']);
+		echo var_dump($_REQUEST['userName'];
 	    	$fotoURL = $IMAGENES_USUARIOS.$_REQUEST['userName']."_".$_FILES['foto']['name'];
 		echo var_dump($fotoURL);
 		echo var_dump($_FILES['foto']['tmp_name']);
