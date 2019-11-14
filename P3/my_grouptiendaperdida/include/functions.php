@@ -134,7 +134,7 @@ function MP2_my_datos_2()
                     print "<tr><td></td>";
                     foreach ($row as $key => $val) {
 			            if ($key == "foto_file"){
-			                echo "<td><img src='../../fotos/", $val, "'></td>";
+			                echo '<td><img src="../../fotos/', $val, '"></td>';
 			            } else {echo "<td>", $val, "</td>";}
                     }
                     print "</tr>";
