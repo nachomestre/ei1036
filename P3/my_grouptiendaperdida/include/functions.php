@@ -124,7 +124,17 @@ function MP2_my_datos_2()
             if (is_array($rows)) {/* Creamos un listado como una tabla HTML*/
                 print '<div><table><th>';
                 foreach ( array_keys($rows[0])as $key) {
-                    echo "<td>", $key,"</td>";
+		    if ($key == "person_id"){
+		    	echo "<td>", "Id","</td>";
+		    }elif ($key == "nombre"){
+		    	echo "<td>", "Nombre","</td>";    
+		    }elif ($key == "email"){
+		    	echo "<td>", "Correo","</td>";    
+		    }elif ($key == "foto_file"){
+		    	echo "<td>", "Foto","</td>";    
+		    }else{
+                    	echo "<td>", $key,"</td>";
+		    }
                 }
                 print "</th>";
                 foreach ($rows as $row) {
