@@ -101,7 +101,7 @@ function MP2_my_datos_2()
             $consult = $MP2_pdo->prepare($query);
             $a=$consult->execute($a);
 	    $fotoURL="";
-	    $IMAGENES_USUARIOS = '/../fotos/';
+	    $IMAGENES_USUARIOS = '/fotos/';
 	    if(array_key_exists('foto', $_FILES) && $_REQUEST['email']) {
 	    	$fotoURL = __DIR__.$IMAGENES_USUARIOS.$_REQUEST['userName']."_".$_FILES['foto']['name'];
 		echo var_dump($_FILES['foto']);
