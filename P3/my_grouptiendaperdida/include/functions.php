@@ -103,7 +103,7 @@ function MP2_my_datos_2()
 	    $fotoURL="";
 	    $IMAGENES_USUARIOS = '../fotos/';
 	    if(array_key_exists('foto', $_FILES) && $_REQUEST['email']) {
-	    	$fotoURL = $IMAGENES_USUARIOS.$_REQUEST['userName']."_".$_FILES['foto']['name'];
+	    	$fotoURL = $IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto']['name'];
 	    	if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoURL))
 	    		{ echo "foto subida con éxito";
 			wp_redirect(admin_url( 'admin-post.php?action=my_datos_2&proceso=registro'));
