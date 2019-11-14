@@ -96,9 +96,9 @@ function MP2_my_datos_2()
             }
 
             $fotoURL="";
-   	    $IMAGENES_USUARIOS = '../fotos/';
+   	    $IMAGENES_USUARIOS = '/fotos/';
             if(array_key_exists('foto', $_FILES) && $_POST['email']) {
-            	$fotoURL = $IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto']['name'];
+            	$fotoURL = __DIR__.$IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto']['name'];
  	    	if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoURL))
             		{ echo "foto subida con éxito";
 			 break;
