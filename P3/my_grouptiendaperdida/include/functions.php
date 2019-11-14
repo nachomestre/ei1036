@@ -52,7 +52,7 @@ function MP2_Register_Form($MP2_user , $user_email)
         <br/>
 	<label for="foto">Foto</label>
 	<br/>
-	<input type="file" name="foto" id="foto" accept="image/*">
+	<input type="file" name="foto" value="foto" accept="image/*">
 	<br/>
 	<br/>
         <input type="submit" value="Enviar">
@@ -100,14 +100,14 @@ function MP2_my_datos_2()
             //$pdo1 = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
             $consult = $MP2_pdo->prepare($query);
             $a=$consult->execute($a);
-			$fotoURL="";
-			$IMAGENES_USUARIOS = '../fotos/';
-		    if(array_key_exists('foto', $_FILES) && $_REQUEST['email']) {
-				$fotoURL = $IMAGENES_USUARIOS.$_REQUEST['userName']."_".$_FILES['foto']['name'];
-				if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoURL))
-					{ echo "foto subida con éxito";
-					  wp_redirect(admin_url( 'admin-post.php?action=my_datos_2&proceso=registro'));
-		    } }
+	    $fotoURL="";
+	    $IMAGENES_USUARIOS = '../fotos/';
+	    if(array_key_exists('foto', $_FILES) && $_REQUEST['email']) {
+	    	$fotoURL = $IMAGENES_USUARIOS.$_REQUEST['userName']."_".$_FILES['foto']['name'];
+	    	if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoURL))
+	    		{ echo "foto subida con éxito";
+			wp_redirect(admin_url( 'admin-post.php?action=my_datos_2&proceso=registro'));
+	    } }
             if (1>$a) {echo "InCorrecto $query";}
             else wp_redirect(admin_url( 'admin-post.php?action=my_datos_2&proceso=listar'));
             break;
