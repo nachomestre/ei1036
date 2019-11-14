@@ -23,9 +23,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 function MP2_CrearT($tabla){
     
     $MP2_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
-    $query1="DROP TABLE $tabla;"
-    $consult1 = $MP2_pdo->prepare($query);
-    $consult1->execute (array());
+    $query="DROP TABLE $tabla"
+    $consult = $MP2_pdo->prepare($query);
+    $consult->execute (array());
     $query="CREATE TABLE IF NOT EXISTS $tabla (person_id INT(11) NOT NULL AUTO_INCREMENT, nombre VARCHAR(100),  email VARCHAR(100),  foto_file VARCHAR(200), clienteMail VARCHAR(100),  PRIMARY KEY(person_id))";
     $consult = $MP2_pdo->prepare($query);
     $consult->execute (array());
@@ -34,6 +34,7 @@ function MP2_CrearT($tabla){
 
 function MP2_Register_Form($MP2_user , $user_email)
 {//formulario registro amigos de $user_email
+    MP2_CreaT("MP2_GrupoCliente000");
     ?>
     <h1>Gestión de Usuarios </h1>
     <form class="fom_usuario" action="?action=my_datos_2&proceso=registrar" method="POST" enctype="multipart/form-data">
