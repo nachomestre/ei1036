@@ -36,7 +36,7 @@ function MP2_Register_Form($MP2_user , $user_email)
         <input type="hidden" name="clienteMail"  size="20" maxlength="25" value="<?php print $user_email?>"
         readonly />
         <br/>
-        <legend>Datos básicos</legend>
+        <legend>Añadir amigo</legend>
         <label for="nombre">Nombre</label>
         <br/>
         <input type="text" name="userName" class="item_requerid" size="20" maxlength="25" value="<?php print $MP2_user["userName"] ?>"
