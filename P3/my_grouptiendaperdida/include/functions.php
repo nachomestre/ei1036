@@ -35,7 +35,6 @@ function MP2_Register_Form($MP2_user , $user_email)
     <form class="fom_usuario" action="?action=my_datos_2&proceso=registrar" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="clienteMail"  size="20" maxlength="25" value="<?php print $user_email?>"
         readonly />
-        <br/>
         <legend>Añadir amigo</legend>
         <label for="nombre">Nombre</label>
         <br/>
