@@ -126,11 +126,11 @@ function MP2_my_datos_2()
                 foreach ( array_keys($rows[0])as $key) {
 		    if ($key == "person_id"){
 		    	echo "<td>", "Id","</td>";
-		    }elif ($key == "nombre"){
+		    }elseif ($key == "nombre"){
 		    	echo "<td>", "Nombre","</td>";    
-		    }elif ($key == "email"){
+		    }elseif ($key == "email"){
 		    	echo "<td>", "Correo","</td>";    
-		    }elif ($key == "foto_file"){
+		    }elseif ($key == "foto_file"){
 		    	echo "<td>", "Foto","</td>";    
 		    }else{
                     	echo "<td>", $key,"</td>";
