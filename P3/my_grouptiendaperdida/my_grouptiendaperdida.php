@@ -26,6 +26,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 //add_action('admin_post_nopriv_my_datos_2', 'my_datos_2');
 $table="MP2_GrupoCliente000";
 include(plugin_dir_path( __FILE__ ).'include/functions.php');
+include(plugin_dir_path( __FILE__ ).'include/upload.php');
 
 register_activation_hook( __FILE__, 'MP2_Ejecutar_crearT');
 
