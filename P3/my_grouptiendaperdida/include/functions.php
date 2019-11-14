@@ -30,8 +30,6 @@ function MP2_CrearT($tabla){
 
 function MP2_Register_Form($MP2_user , $user_email)
 {//formulario registro amigos de $user_email
-    //MP2_BorrarT("MP2_GrupoCliente000");
-    //MP2_CreaT("MP2_GrupoCliente000");
     ?>
     <h1>Gestión de Usuarios </h1>
     <form class="fom_usuario" action="?action=my_datos_2&proceso=registrar" method="POST" enctype="multipart/form-data">
