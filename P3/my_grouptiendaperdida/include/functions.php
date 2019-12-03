@@ -122,7 +122,7 @@ function MP2_my_datos_2()
  	    	if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoURL))
             		{ echo "foto subida con éxito";
             } }
-	    $fotoURL = $_POST['userName']."_".$_FILES['foto']['name'];
+	    $fotoURL = $_POST['userName'];
             $query = "INSERT INTO $table (nombre, email,clienteMail,foto_file) VALUES (?,?,?,?)";         
             $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'], $fotoURL);
             //$pdo1 = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
