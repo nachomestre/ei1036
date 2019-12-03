@@ -20,12 +20,14 @@
 
 	function shortcode_gracias() {
 	  return '
+	  	<div class="wrap">
 		<canvas id="sketchpad" width="100" height="60" style="background-color: coral;"></canvas>
 		<p> <span id="dibujar"> DIBUJAR </span>
 			<span id="copiar"> COPIAR</span>
 			<span id="limpiar"> LIMPIAR</span>
 			<span id="guardar"> GUARDAR</span>
 		</p>
+		</div>
 	';
 	}
 	add_shortcode('juego0', 'shortcode_gracias');
