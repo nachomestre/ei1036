@@ -129,10 +129,10 @@ function MP2_my_datos_2()
             $consult = $MP2_pdo->prepare($query);
             $a=$consult->execute($a);
             if (1>$a) {
-		    $query = "UPDATE $table SET email=$_REQUEST['email'] foto_file=$fotoURL WHERE nombre=(?)";         
-		    $a=array($_REQUEST['userName']);
+            $a=$_REQUEST['userName'];
+		    $query = "UPDATE $table SET foto_file='$fotoURL' WHERE nombre='$a'";
 		    $consult = $MP2_pdo->prepare($query);
-		    $a=$consult->execute($a);
+		    $a=$consult->execute();
 		    if (1>$a) {
 			    echo "InCorrecto $query";}}
             else wp_redirect(admin_url( 'admin-post.php?action=my_datos_2&proceso=listar'));
