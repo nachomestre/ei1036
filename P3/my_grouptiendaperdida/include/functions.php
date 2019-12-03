@@ -115,7 +115,7 @@ function MP2_my_datos_2()
             $fotoURL="";
    	    $IMAGENES_USUARIOS = '/fotos/';
             if(array_key_exists('foto', $_FILES) && $_POST['email']) {
-            	$fotoURL = dirname(dirname(__DIR__)).$IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto']['name'];
+            	$fotoURL = dirname(dirname(__DIR__)).$IMAGENES_USUARIOS.$_POST['userName'];
 		if (file_exists($fotoURL)){
 			unlink($fotoURL);
 		}
