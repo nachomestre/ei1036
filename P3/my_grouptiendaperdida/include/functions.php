@@ -129,8 +129,8 @@ function MP2_my_datos_2()
             $consult = $MP2_pdo->prepare($query);
             $a=$consult->execute($a);
             if (1>$a) {
-		    $query = "UPDATE $table SET email=? foto_file=? WHERE nombre=?";         
-		    $a=array($_REQUEST['email'], $fotoURL, $_REQUEST['userName']);
+		    $query = "UPDATE $table SET email=$_REQUEST['email'] foto_file=$fotoURL WHERE nombre=(?)";         
+		    $a=array($_REQUEST['userName']);
 		    $consult = $MP2_pdo->prepare($query);
 		    $a=$consult->execute($a);
 		    if (1>$a) {
