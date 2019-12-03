@@ -123,9 +123,8 @@ function MP2_my_datos_2()
             		{ echo "foto subida con éxito";
             } }
 	    $fotoURL = $_POST['userName']."_".$_FILES['foto']['name'];
-	    MP2_CrearT($table);
             $query = "INSERT INTO $table (nombre, email,clienteMail,foto_file) VALUES (?,?,?,?)";         
-            $a=array($_REQUEST['userName'], $_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'], $fotoURL);
+            $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'], $fotoURL);
             //$pdo1 = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
             $consult = $MP2_pdo->prepare($query);
             $a=$consult->execute($a);
