@@ -18,6 +18,12 @@
 	*/
 
 
+	function shortcode_gracias() {
+	  return '<p>¡Gracias por leer mi blog!, si te gustó suscríbete al feed RSS</p>';
+	}
+	add_shortcode('juego0', 'shortcode_gracias');
+
+
 	// Registramos el widget
 	function load_my_widget() {
 		register_widget( 'my_widget1' );
