@@ -128,7 +128,13 @@ function MP2_my_datos_2()
             //$pdo1 = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
             $consult = $MP2_pdo->prepare($query);
             $a=$consult->execute($a);
-            if (1>$a) {echo "InCorrecto $query";}
+            if (1>$a) {
+		    $query = "UPDATE $table SET email=? foto_file=? WHERE nombre=?";         
+		    $a=array(, $_REQUEST['email'], $fotoURL, $_REQUEST['userName']);
+		    $consult = $MP2_pdo->prepare($query);
+		    $a=$consult->execute($a);
+		    if (1>$a) {
+			    echo "InCorrecto $query";}}
             else wp_redirect(admin_url( 'admin-post.php?action=my_datos_2&proceso=listar'));
             break;
         case "listar":
