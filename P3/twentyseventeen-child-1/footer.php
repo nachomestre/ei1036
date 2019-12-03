@@ -16,6 +16,12 @@
 
 		</div><!-- #content -->
 
+		<iframe width="400" height="215" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="./Web page parsing_files/maps.html">
+		</iframe>
+		<p>
+		<a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=es-419&amp;geocode=&amp;q=buenos+aires&amp;sll=37.0625,-95.677068&amp;sspn=38.638819,80.859375&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Buenos+Aires,+Argentina&amp;z=11&amp;ll=-34.603723,-58.381593" style="color:#0000FF;text-align:left">See bigger map</a>
+		</p>
+
 		<footer id="colophon" class="site-footer" role="contentinfo">
 			<div class="wrap">
 				<?php
