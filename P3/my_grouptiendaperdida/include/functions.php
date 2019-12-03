@@ -111,6 +111,10 @@ function MP2_my_datos_2()
                 print ("No has rellenado el formulario correctamente");
                 return;
             }
+            if (exif_imagetype($_FILES['foto']['tmp_name']) != 2 || getimagesize($_FILES['foto']['tmp_name'])[0] > 500 || getimagesize($_FILES['foto']['tmp_name'])[1] > 500){
+                print ("La imagen debe ser en formato jpg y de dimensiones maximas 500x500");
+                return;
+            }
 
             $fotoURL="";
    	    $IMAGENES_USUARIOS = '/fotos/';
