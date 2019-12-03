@@ -21,7 +21,7 @@
 	function shortcode_gracias() {
 	  return '
 	  	<div class="wrap">
-		<canvas id="sketchpad" width="100" height="60" style="background-color: coral;"></canvas>
+		<canvas id="sketchpad" width="500" height="400" style="background-color: coral;"></canvas>
 		<p> <span id="dibujar"> DIBUJAR </span>
 			<span id="copiar"> COPIAR</span>
 			<span id="limpiar"> LIMPIAR</span>
