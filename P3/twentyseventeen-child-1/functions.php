@@ -19,7 +19,14 @@
 
 
 	function shortcode_gracias() {
-	  return '<p>¡Gracias por leer mi blog!, si te gustó suscríbete al feed RSS</p>';
+	  return '
+		<canvas id="sketchpad" width="100" height="60" style="background-color: coral;"></canvas>
+		<p> <span id="dibujar"> DIBUJAR </span>
+			<span id="copiar"> COPIAR</span>
+			<span id="limpiar"> LIMPIAR</span>
+			<span id="guardar"> GUARDAR</span>
+		</p>
+	';
 	}
 	add_shortcode('juego0', 'shortcode_gracias');
 
