@@ -48,12 +48,33 @@ function MP2_Register_Form($MP2_user , $user_email)
         <br/>
 	<label for="foto">Foto</label>
 	<br/>
-	<input type="file" name="foto" value="foto" accept="image/*">
+	<input type="file" id="foto" name="foto" value="foto" accept="image/*">
+	<br/>
+	<img id="img_foto">
 	<br/>
 	<br/>
         <input type="submit" value="Enviar">
         <input type="reset" value="Deshacer">
     </form>
+	<script type="text/javascript" charset="utf-8">
+		function mostrarFoto(file, imagen) {
+			var reader = new FileReader();
+			reader.addEventListener("load", function () {
+				imagen.src = reader.result;
+			});
+			reader.readAsDataURL(file);
+		}
+
+		function ready() {
+			var fichero = document.querySelector("#foto");
+			var imagen = document.querySelector("#img_foto");
+			fichero.addEventListener("change", function (event) {
+				mostrarFoto(this.files[0], imagen);
+			});
+		}
+		ready();
+	</script>
+
 <?php
 }
 
