@@ -15,8 +15,7 @@
 ?>
 
 		</div><!-- #content -->
-<div style="width: 100px"><iframe width="100" height="500" src="https://maps.google.com/maps?width=100&height=500&hl=es&q=Avenida%20de%20Vicent%20Sos%20Baynat%2C%20s%2Fn%2C%2012071%20Castell%C3%B3n%20de%20la%20Plana%2C%20Castell%C3%B3n+(TiendaPerdida2)&ie=UTF8&t=&z=14&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.mapsdirections.info/calcular-ruta.html">Mapa de Ruta</a></iframe></div><br />
-
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6113.241528024085!2d-0.07195582232843417!3d39.994579537096755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1368bf53b3a7fb3f!2sUniversitat%20Jaume%20I!5e0!3m2!1ses!2ses!4v1575391088537!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 		<footer id="colophon" class="site-footer" role="contentinfo">
 			<div class="wrap">
 				<?php
