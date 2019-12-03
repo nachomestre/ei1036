@@ -124,7 +124,7 @@ function MP2_my_datos_2()
             } }
 	    $fotoURL = $_POST['userName']."_".$_FILES['foto']['name'];
 
-            $query = "IF (NOT EXISTS(SELECT * FROM $table WHERE email=(?)) THEN INSERT INTO $table (nombre, email,clienteMail,foto_file) VALUES (?,?,?,?); END IF;";         
+            $query = "INSERT INTO $table (nombre, email,clienteMail,foto_file) VALUES (?,?,?,?)";         
             $a=array($_REQUEST['userName'], $_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'], $fotoURL);
             //$pdo1 = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
             $consult = $MP2_pdo->prepare($query);
