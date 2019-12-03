@@ -116,13 +116,16 @@ function MP2_my_datos_2()
    	    $IMAGENES_USUARIOS = '/fotos/';
             if(array_key_exists('foto', $_FILES) && $_POST['email']) {
             	$fotoURL = dirname(dirname(__DIR__)).$IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto']['name'];
+		if (file_exists($fotoURL)){
+			unlink($fotoURL);
+		}
  	    	if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoURL))
             		{ echo "foto subida con éxito";
             } }
 	    $fotoURL = $_POST['userName']."_".$_FILES['foto']['name'];
 
-            $query = "INSERT INTO $table (nombre, email,clienteMail,foto_file) VALUES (?,?,?,?)";         
-            $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'], $fotoURL);
+            $query = "IF (NOT EXISTS(SELECT * FROM $table WHERE nombre=(?)) INSERT INTO $table (nombre, email,clienteMail,foto_file) VALUES (?,?,?,?)";         
+            $a=array($_REQUEST['userName'], $_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'], $fotoURL);
             //$pdo1 = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
             $consult = $MP2_pdo->prepare($query);
             $a=$consult->execute($a);
