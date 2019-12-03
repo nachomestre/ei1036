@@ -7,6 +7,13 @@
 					y: evt.clientY - rect.top
 				};
 			}
+		function mostrarFoto(file, imagen) {
+			var reader = new FileReader();
+			reader.addEventListener("load", function () {
+				imagen.src = reader.result;
+			});
+			reader.readAsDataURL(file);
+		}
 		
 		function limpiar(context) {
 			canvas = document.querySelector('#sketchpad');
@@ -25,6 +32,11 @@
 				
 			}
 		function ready() {
+			var fichero = document.querySelector("#foto");
+			var imagen = document.querySelector("#img_foto");
+			fichero.addEventListener("change", function (event) {
+				mostrarFoto(this.files[0], imagen);
+			})
 			var canvas = document.querySelector("#sketchpad");
 			context = canvas.getContext('2d');
 			canvas.addEventListener("click",function(evt){
@@ -34,8 +46,14 @@
 			document.querySelector("#dibujar").addEventListener("click", function () {
 				dibuja(context);
 			});
+			document.querySelector("#copiar").addEventListener("click", function () {
+				context.drawImage(imagen, 0, 0, 100, 60);
+			});
 			document.querySelector("#limpiar").addEventListener("click", function () {
 				limpiar(context);
+			});
+			document.querySelector("#guardar").addEventListener("click", function () {
+				imagen.src = canvas.toDataURL("image/png");
 			});
 		}
 		ready();
