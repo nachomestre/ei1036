@@ -22,6 +22,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 //Funcion instalación plugin. Crea tabla
 function MP2_CrearT($tabla){
     $MP2_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
+    $query1="DROP TABLE $tabla";
+    $consult1 = $MP2_pdo->prepare($query1);
+    $consult1->execute (array());
     $query="CREATE TABLE IF NOT EXISTS $tabla (person_id INT(11) NOT NULL AUTO_INCREMENT, nombre VARCHAR(100) UNIQUE,  email VARCHAR(100),  foto_file VARCHAR(200), clienteMail VARCHAR(100),  PRIMARY KEY(person_id))";
     $consult = $MP2_pdo->prepare($query);
     $consult->execute (array());
@@ -123,7 +126,7 @@ function MP2_my_datos_2()
             		{ echo "foto subida con éxito";
             } }
 	    $fotoURL = $_POST['userName']."_".$_FILES['foto']['name'];
-
+	    MP2_CrearT($tabla);
             $query = "INSERT INTO $table (nombre, email,clienteMail,foto_file) VALUES (?,?,?,?)";         
             $a=array($_REQUEST['userName'], $_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'], $fotoURL);
             //$pdo1 = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
