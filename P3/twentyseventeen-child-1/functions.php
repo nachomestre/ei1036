@@ -21,7 +21,7 @@
 	function shortcode_juego0() {
 	  return '
 	  	<div class="wrap">
-		<canvas id="sketchpad" width="500" height="500" style="background-color: coral;"></canvas>
+		<canvas id="sketchpad" width="500" height="500" style="background-color: whitesmoke;"></canvas>
 		<p> <span id="reiniciar"> REINICIAR </span> <span> MARCADOR: </span> <span id="marcador"> 0 </span>
 		</p>
 		</div>
