@@ -25,7 +25,7 @@ function dibuja(context) {
 	cuadrado[0] = x;
 	cuadrado[1] = y;
 	context.fillStyle = "rgb(200,0,0)";
-	context.fillRect(x, y, 30, 30);
+	context.fillRect(x, y, 10, 10);
 }
 
 function dibujaPremio(context){
@@ -41,14 +41,14 @@ function DibujaEnRaton(context, coors) {
 	var vector = [coors.x - cuadrado[0], coors.y - cuadrado[1]];
 	var modulo = Math.sqrt(vector[0]*vector[0]+vector[1]*vector[1]);
 	context.fillStyle = "rgb(0,0,200)";
-	context.fillRect(cuadrado[0], cuadrado[1], 30, 30);
+	context.fillRect(cuadrado[0], cuadrado[1], 10, 10);
 	cuadrado[0] = cuadrado[0] + vector[0] / modulo * 30;
 	cuadrado[1] = cuadrado[1] + vector[1] / modulo * 30;
 	context.fillStyle = "rgb(200,0,0)";
-	context.fillRect(cuadrado[0], cuadrado[1], 30, 30);
-	if(cuadrado[0]+15 > premio[0] && cuadrado[0]+15 < premio[0]+30 && cuadrado[1]+15 > premio[1] && cuadrado[1]+15 < premio[1]+30){
+	context.fillRect(cuadrado[0], cuadrado[1], 10, 10);
+	if(cuadrado[0]+5 > premio[0] && cuadrado[0]+5 < premio[0]+30 && cuadrado[1]+5 > premio[1] && cuadrado[1]+5 < premio[1]+30){
 		context.fillStyle = "rgb(0,0,0)";
-		context.fillRect(premio[0], premio[1], 30, 30);
+		context.fillRect(premio[0], premio[1], 10, 10);
 		dibujaPremio(context);
 		puntuacion = puntuacion + 1;
 		marcador();
