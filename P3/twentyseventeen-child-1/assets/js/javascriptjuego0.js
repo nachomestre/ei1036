@@ -67,6 +67,7 @@ function ready() {
 		dibuja(context, cuadrado);
 		puntuacion = 0;
 		marcador(puntuacion);
+		dibujaPremio(context);
 	});
 	
 	dibuja(context);
