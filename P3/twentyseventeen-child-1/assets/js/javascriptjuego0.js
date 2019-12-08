@@ -12,25 +12,32 @@ function limpiar(context) {
 	context.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-function dibuja(context) {
-	context.fillStyle = "rgb(200,0,0)";
-	context.fillRect(20, 10, 40, 50);
+function dibuja(context, cuadrado) {
+	var x = Math.floor(Math.random() * 470);
+	var y = Math.floor(Math.random() * 470);
+	cuadrado = [x, y];
+	context.fillStyle = "rgb(0,0,200)";
+	context.fillRect(x, y, 30, 30);
 }
-function DibujaEnRaton(context, coors) {
-	context.fillStyle = "rgb(200,200,0)";
-	context.fillRect(coors.x, coors.y, 30, 30);
-
+function DibujaEnRaton(context, coors, cuadrado) {
+	if(coors.x > cuadrado[0] && coors.x < cuadrado[0]+30 && coors.y > cuadrado[1] && coors.y < cuadrado[1]+30){
+		context.fillStyle = "rgb(200,0,0)";
+		context.fillRect(cuadrado[0], cuadrado[1], 30, 30);
+	}
 		
 	}
 function ready() {
 	var canvas = document.querySelector("#sketchpad");
 	context = canvas.getContext('2d');
+	var cuadrado = [0, 0];
+	
 	canvas.addEventListener("click",function(evt){
 		coors=getMousePos(canvas, evt);
-		DibujaEnRaton(context, coors) ;
+		DibujaEnRaton(context, coors, cuadrado) ;
 	})
 	document.querySelector("#dibujar").addEventListener("click", function () {
-		dibuja(context);
+		limpiar(context);
+		dibuja(context, cuadrado);
 	});
 	document.querySelector("#limpiar").addEventListener("click", function () {
 		limpiar(context);
