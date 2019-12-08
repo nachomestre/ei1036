@@ -48,7 +48,7 @@ function DibujaEnRaton(context, coors) {
 	context.fillRect(cuadrado[0], cuadrado[1], 10, 10);
 	if(cuadrado[0]+5 > premio[0] && cuadrado[0]+5 < premio[0]+30 && cuadrado[1]+5 > premio[1] && cuadrado[1]+5 < premio[1]+30){
 		context.fillStyle = "rgb(0,0,0)";
-		context.fillRect(premio[0], premio[1], 10, 10);
+		context.fillRect(premio[0], premio[1], 30, 30);
 		dibujaPremio(context);
 		puntuacion = puntuacion + 1;
 		marcador();
