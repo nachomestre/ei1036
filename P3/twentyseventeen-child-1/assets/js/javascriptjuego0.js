@@ -1,4 +1,5 @@
 var cuadrado = [0, 0];
+var premio = [0, 0];
 var puntuacion = 0;
 function getMousePos(canvas, evt) {
 		var rect = canvas.getBoundingClientRect();
@@ -26,6 +27,16 @@ function dibuja(context) {
 	context.fillStyle = "rgb(200,0,0)";
 	context.fillRect(x, y, 30, 30);
 }
+
+function dibujaPremio(context){
+	var x = Math.floor(Math.random() * 470);
+	var y = Math.floor(Math.random() * 470);
+	premio[0] = x;
+	premio[1] = y;
+	context.fillStyle = "rgb(0,200,0)";
+	context.fillRect(x, y, 30, 30);
+}
+
 function DibujaEnRaton(context, coors) {
 	var vector = [coors.x - cuadrado[0], coors.y - cuadrado[1]];
 	var modulo = Math.sqrt(vector[0]*vector[0]+vector[1]*vector[1]);
@@ -35,9 +46,15 @@ function DibujaEnRaton(context, coors) {
 	cuadrado[1] = cuadrado[1] + vector[1] / modulo * 30;
 	context.fillStyle = "rgb(200,0,0)";
 	context.fillRect(cuadrado[0], cuadrado[1], 30, 30);
-	puntuacion = puntuacion + 1;
-	marcador();
+	if(cuadrado[0]+15 > premio[0] && cuadrado[0]+15 < premio[0]+30 && cuadrado[1]+15 > premio[1] && cuadrado[1]+15 < premio[1]+30){
+		context.fillStyle = "rgb(0,0,0)";
+		context.fillRect(premio[0], premio[1], 30, 30);
+		dibujaPremio(context);
+		puntuacion = puntuacion + 1;
+		marcador();
 	}
+}
+
 function ready() {
 	var canvas = document.querySelector("#sketchpad");
 	context = canvas.getContext('2d');
@@ -53,6 +70,7 @@ function ready() {
 	});
 	
 	dibuja(context);
+	dibujaPremio(context);
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
