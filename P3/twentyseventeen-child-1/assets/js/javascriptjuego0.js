@@ -1,6 +1,8 @@
 var cuadrado = [0, 0];
 var premio = [0, 0];
 var puntuacion = 0;
+var rastrox = [];
+var rastroy = [];
 function getMousePos(canvas, evt) {
 		var rect = canvas.getBoundingClientRect();
 		return {
