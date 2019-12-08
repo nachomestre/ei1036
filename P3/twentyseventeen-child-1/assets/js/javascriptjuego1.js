@@ -8,7 +8,7 @@ function getMousePos(canvas, evt) {
 	}
 
 function limpiar(context) {
-	canvas = document.querySelector('#sketchpad');
+	canvas = document.querySelector('#sketchpad1');
 	context = canvas.getContext("2d");
 	context.clearRect(0, 0, canvas.width, canvas.height);
 }
@@ -30,13 +30,13 @@ function DibujaEnRaton(context, coors) {
 		
 	}
 function ready() {
-	var canvas = document.querySelector("#sketchpad");
+	var canvas = document.querySelector("#sketchpad1");
 	context = canvas.getContext('2d');
 	canvas.addEventListener("click",function(evt){
 		coors=getMousePos(canvas, evt);
 		DibujaEnRaton(context, coors, cuadrado) ;
 	})
-	document.querySelector("#reiniciar").addEventListener("click", function () {
+	document.querySelector("#reiniciar1").addEventListener("click", function () {
 		limpiar(context);
 		dibuja(context, cuadrado);
 	});
