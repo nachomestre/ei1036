@@ -32,7 +32,6 @@ function DibujaEnRaton(context, coors) {
 function ready() {
 	var canvas = document.querySelector("#sketchpad");
 	context = canvas.getContext('2d');
-	
 	canvas.addEventListener("click",function(evt){
 		coors=getMousePos(canvas, evt);
 		DibujaEnRaton(context, coors, cuadrado) ;
@@ -44,6 +43,8 @@ function ready() {
 	document.querySelector("#limpiar").addEventListener("click", function () {
 		limpiar(context);
 	});
+	
+	dibuja(context);
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
