@@ -36,12 +36,9 @@ function ready() {
 		coors=getMousePos(canvas, evt);
 		DibujaEnRaton(context, coors, cuadrado) ;
 	})
-	document.querySelector("#dibujar").addEventListener("click", function () {
+	document.querySelector("#reiniciar").addEventListener("click", function () {
 		limpiar(context);
 		dibuja(context, cuadrado);
-	});
-	document.querySelector("#limpiar").addEventListener("click", function () {
-		limpiar(context);
 	});
 	
 	dibuja(context);
