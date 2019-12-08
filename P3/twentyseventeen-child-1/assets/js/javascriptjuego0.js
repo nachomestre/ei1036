@@ -42,8 +42,8 @@ function DibujaEnRaton(context, coors) {
 	var modulo = Math.sqrt(vector[0]*vector[0]+vector[1]*vector[1]);
 	context.fillStyle = "rgb(0,0,200)";
 	context.fillRect(cuadrado[0], cuadrado[1], 10, 10);
-	cuadrado[0] = cuadrado[0] + vector[0] / modulo * 30;
-	cuadrado[1] = cuadrado[1] + vector[1] / modulo * 30;
+	cuadrado[0] = cuadrado[0] + vector[0] / modulo * 10;
+	cuadrado[1] = cuadrado[1] + vector[1] / modulo * 10;
 	context.fillStyle = "rgb(200,0,0)";
 	context.fillRect(cuadrado[0], cuadrado[1], 10, 10);
 	if(cuadrado[0]+5 > premio[0] && cuadrado[0]+5 < premio[0]+30 && cuadrado[1]+5 > premio[1] && cuadrado[1]+5 < premio[1]+30){
