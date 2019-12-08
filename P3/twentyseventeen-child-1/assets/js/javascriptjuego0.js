@@ -18,16 +18,18 @@ function dibuja(context) {
 	var y = Math.floor(Math.random() * 470);
 	cuadrado[0] = x;
 	cuadrado[1] = y;
-	context.fillStyle = "rgb(0,0,200)";
+	context.fillStyle = "rgb(200,0,0)";
 	context.fillRect(x, y, 30, 30);
 }
 function DibujaEnRaton(context, coors) {
-	if(coors.x > cuadrado[0] && coors.x < cuadrado[0]+30 && coors.y > cuadrado[1] && coors.y < cuadrado[1]+30){
-		context.fillStyle = "rgb(200,0,0)";
-		context.fillRect(cuadrado[0], cuadrado[1], 30, 30);
-		dibuja(context);
-	}
-		
+	var vector = [coors.x - cuadrado[0], coors.y - cuadrado[1]];
+	var modulo = Math.sqrt(vector[0]*vector[0]+vector[1]*vector[1]);
+	context.fillStyle = "rgb(0,0,200)";
+	context.fillRect(cuadrado[0], cuadrado[1], 30, 30);
+	cuadrado[0] = cuadrado[0] + vector[0] / modulo * 30;
+	cuadrado[1] = cuadrado[1] + vector[1] / modulo * 30;
+	context.fillStyle = "rgb(200,0,0)";
+	context.fillRect(cuadrado[0], cuadrado[1], 30, 30);
 	}
 function ready() {
 	var canvas = document.querySelector("#sketchpad");
