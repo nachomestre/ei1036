@@ -22,8 +22,7 @@
 	  return '
 	  	<div class="wrap">
 		<canvas id="sketchpad" width="500" height="500" style="background-color: coral;"></canvas>
-		<p> <span id="dibujar"> DIBUJAR </span>
-		<span id="limpiar"> LIMPIAR</span>
+		<p> <span id="reiniciar"> REINICIAR </span>
 		</p>
 		</div>
 	';
