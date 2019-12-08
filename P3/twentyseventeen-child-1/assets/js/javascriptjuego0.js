@@ -45,5 +45,8 @@ function ready() {
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    ready();
+    var selection = document.querySelector('#sketchpad') !== null;
+    if (selection) {
+        ready();
+    }
 });
