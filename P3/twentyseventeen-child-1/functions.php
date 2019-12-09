@@ -29,7 +29,7 @@
 	}
 	function add_theme_scripts(){
 		wp_enqueue_script( 'juego0', get_stylesheet_directory_uri().'/assets/js/javascriptjuego0.js',true);
-		//wp_enqueue_style( 'style',get_stylesheet_directory_uri().'/assets/css/micss.js',true);
+		//wp_enqueue_style( 'style',get_stylesheet_directory_uri().'/assets/css/micss.js',true); //test
 	}
 	add_shortcode('juego0', 'shortcode_juego0');
 	add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
