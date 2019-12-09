@@ -45,10 +45,10 @@ function DibujaEnRaton(context, coors) {
 	if(context.getImageData(vector[0], vector[1], 1, 1).data[2]==200){
 		premio[0] = -200;
 		premio[1] = -200;
-		ctx.font="50px Comic Sans MS";
-		ctx.fillStyle = "red";
-		ctx.textAlign = "center";
-		ctx.fillText("¡Has perdido!", 250, 250);
+		context.font="50px Comic Sans MS";
+		context.fillStyle = "red";
+		context.textAlign = "center";
+		context.fillText("¡Has perdido!", 250, 250);
 	}
 	context.fillStyle = "rgb(0,0,200)";
 	context.fillRect(cuadrado[0], cuadrado[1], 10, 10);
