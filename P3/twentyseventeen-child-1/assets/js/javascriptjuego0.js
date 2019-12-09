@@ -82,6 +82,7 @@ function ready() {
 		puntuacion = 0;
 		marcador(puntuacion);
 		dibujaPremio(context);
+		perdido = 0;
 	});
 	
 	dibuja(context);
