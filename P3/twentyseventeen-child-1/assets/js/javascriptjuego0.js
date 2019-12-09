@@ -1,6 +1,7 @@
 var cuadrado = [0, 0];
 var premio = [0, 0];
 var puntuacion = 0;
+var perdido = 0;
 function getMousePos(canvas, evt) {
 		var rect = canvas.getBoundingClientRect();
 		return {
@@ -38,30 +39,33 @@ function dibujaPremio(context){
 }
 
 function DibujaEnRaton(context, coors) {
-	var vector = [coors.x - cuadrado[0], coors.y - cuadrado[1]];
-	var modulo = Math.sqrt(vector[0]*vector[0]+vector[1]*vector[1]);
-	vector[0] = cuadrado[0] + vector[0] / modulo * 10;
-	vector[1] = cuadrado[1] + vector[1] / modulo * 10;
-	if(context.getImageData(vector[0], vector[1], 1, 1).data[2]==200){
-		premio[0] = -200;
-		premio[1] = -200;
-		context.font="50px Comic Sans MS";
-		context.fillStyle = "red";
-		context.textAlign = "center";
-		context.fillText("¡Has perdido!", 250, 250);
-	}
-	context.fillStyle = "rgb(0,0,200)";
-	context.fillRect(cuadrado[0], cuadrado[1], 10, 10);
-	cuadrado[0] = vector[0];
-	cuadrado[1] = vector[1];
-	context.fillStyle = "rgb(200,0,0)";
-	context.fillRect(cuadrado[0], cuadrado[1], 10, 10);
-	if(cuadrado[0]+5 > premio[0] && cuadrado[0]+5 < premio[0]+30 && cuadrado[1]+5 > premio[1] && cuadrado[1]+5 < premio[1]+30){
-		context.fillStyle = "rgb(0,0,0)";
-		context.fillRect(premio[0], premio[1], 30, 30);
-		dibujaPremio(context);
-		puntuacion = puntuacion + 1;
-		marcador();
+	if(perdido == 0){
+		var vector = [coors.x - cuadrado[0], coors.y - cuadrado[1]];
+		var modulo = Math.sqrt(vector[0]*vector[0]+vector[1]*vector[1]);
+		vector[0] = cuadrado[0] + vector[0] / modulo * 10;
+		vector[1] = cuadrado[1] + vector[1] / modulo * 10;
+		if(context.getImageData(vector[0], vector[1], 1, 1).data[2]==200){
+			premio[0] = -200;
+			premio[1] = -200;
+			context.font="50px Comic Sans MS";
+			context.fillStyle = "red";
+			context.textAlign = "center";
+			context.fillText("Has perdido!", 250, 250);
+			perdido = 1;
+		}
+		context.fillStyle = "rgb(0,0,200)";
+		context.fillRect(cuadrado[0], cuadrado[1], 10, 10);
+		cuadrado[0] = vector[0];
+		cuadrado[1] = vector[1];
+		context.fillStyle = "rgb(200,0,0)";
+		context.fillRect(cuadrado[0], cuadrado[1], 10, 10);
+		if(cuadrado[0]+5 > premio[0] && cuadrado[0]+5 < premio[0]+30 && cuadrado[1]+5 > premio[1] && cuadrado[1]+5 < premio[1]+30){
+			context.fillStyle = "rgb(0,0,0)";
+			context.fillRect(premio[0], premio[1], 30, 30);
+			dibujaPremio(context);
+			puntuacion = puntuacion + 1;
+			marcador();
+		}
 	}
 }
 
