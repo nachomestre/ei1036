@@ -48,7 +48,7 @@
 		//wp_enqueue_style( 'style',get_stylesheet_directory_uri().'/assets/css/micss.js',true);
 	}
 	add_shortcode('juego1', 'shortcode_juego1');
-	add_action( 'wp_enqueue_scripts', 'add_theme_scripts1' );
+	//add_action( 'wp_enqueue_scripts', 'add_theme_scripts1' );
 
 
 
