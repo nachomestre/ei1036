@@ -44,6 +44,10 @@ function DibujaEnRaton(context, coors) {
 	context.fillRect(cuadrado[0], cuadrado[1], 10, 10);
 	cuadrado[0] = cuadrado[0] + vector[0] / modulo * 10;
 	cuadrado[1] = cuadrado[1] + vector[1] / modulo * 10;
+	if(context.getImageData(cuadrado[0], cuadrado[1], 1, 1).data[2]==200){
+		premio[0] = -200;
+		premio[1] = -200;
+	}
 	context.fillStyle = "rgb(200,0,0)";
 	context.fillRect(cuadrado[0], cuadrado[1], 10, 10);
 	if(cuadrado[0]+5 > premio[0] && cuadrado[0]+5 < premio[0]+30 && cuadrado[1]+5 > premio[1] && cuadrado[1]+5 < premio[1]+30){
