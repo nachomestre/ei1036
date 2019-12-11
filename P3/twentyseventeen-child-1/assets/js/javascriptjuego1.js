@@ -38,7 +38,7 @@ function ready1() {
 	})
 	document.querySelector("#reiniciar1").addEventListener("click", function () {
 		limpiar1(context);
-		dibuja1(context, cuadrado);
+		dibuja1(context);
 	});
 	
 	dibuja1(context);
