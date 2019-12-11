@@ -2,7 +2,7 @@ var cuadrado = [0, 0];
 var premio = [0, 0];
 var puntuacion = 0;
 var perdido = 0;
-function getMousePos(canvas, evt) {
+function getMousePos0(canvas, evt) {
 		var rect = canvas.getBoundingClientRect();
 		return {
 			x: evt.clientX - rect.left,
@@ -10,17 +10,17 @@ function getMousePos(canvas, evt) {
 		};
 	}
 
-function limpiar(context) {
+function limpiar0(context) {
 	canvas = document.querySelector('#sketchpad');
 	context = canvas.getContext("2d");
 	context.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-function marcador(){
+function marcador0(){
 	document.getElementById('marcador').innerHTML = puntuacion;
 }
 
-function dibuja(context) {
+function dibuja0(context) {
 	var x = Math.floor(Math.random() * 470);
 	var y = Math.floor(Math.random() * 470);
 	cuadrado[0] = x;
@@ -29,7 +29,7 @@ function dibuja(context) {
 	context.fillRect(x, y, 10, 10);
 }
 
-function dibujaPremio(context){
+function dibujaPremio0(context){
 	var x = Math.floor(Math.random() * 470);
 	var y = Math.floor(Math.random() * 470);
 	premio[0] = x;
@@ -38,7 +38,7 @@ function dibujaPremio(context){
 	context.fillRect(x, y, 30, 30);
 }
 
-function DibujaEnRaton(context, coors) {
+function DibujaEnRaton0(context, coors) {
 	if(perdido == 0){
 		var vector = [coors.x - cuadrado[0], coors.y - cuadrado[1]];
 		var modulo = Math.sqrt(vector[0]*vector[0]+vector[1]*vector[1]);
@@ -62,36 +62,36 @@ function DibujaEnRaton(context, coors) {
 		if(cuadrado[0]+5 > premio[0] && cuadrado[0]+5 < premio[0]+30 && cuadrado[1]+5 > premio[1] && cuadrado[1]+5 < premio[1]+30){
 			context.fillStyle = "rgb(0,0,0)";
 			context.fillRect(premio[0], premio[1], 30, 30);
-			dibujaPremio(context);
+			dibujaPremio0(context);
 			puntuacion = puntuacion + 1;
-			marcador();
+			marcador0();
 		}
 	}
 }
 
-function ready() {
+function ready0() {
 	var canvas = document.querySelector("#sketchpad");
 	context = canvas.getContext('2d');
 	canvas.addEventListener("click",function(evt){
-		coors=getMousePos(canvas, evt);
-		DibujaEnRaton(context, coors, cuadrado) ;
+		coors=getMousePos0(canvas, evt);
+		DibujaEnRaton0(context, coors, cuadrado) ;
 	})
 	document.querySelector("#reiniciar").addEventListener("click", function () {
-		limpiar(context);
-		dibuja(context, cuadrado);
+		limpiar0(context);
+		dibuja0(context, cuadrado);
 		puntuacion = 0;
-		marcador(puntuacion);
-		dibujaPremio(context);
+		marcador0(puntuacion);
+		dibujaPremio0(context);
 		perdido = 0;
 	});
 	
-	dibuja(context);
-	dibujaPremio(context);
+	dibuja0(context);
+	dibujaPremio0(context);
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    var selection = document.querySelector('#sketchpad') != null;
-    if (selection) {
-        ready();
+    var selection0 = document.querySelector('#sketchpad') != null;
+    if (selection0) {
+        ready0();
     }
 });
