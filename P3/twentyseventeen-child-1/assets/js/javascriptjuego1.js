@@ -24,7 +24,7 @@ function dibuja1(context) {
 function DibujaEnRaton1(context, coors) {
 	if(coors.x > cuadrado1[0] && coors.x < cuadrado1[0]+30 && coors.y > cuadrado1[1] && coors.y < cuadrado1[1]+30){
 		context.fillStyle = "rgb(200,0,0)";
-		context.fillRect(cuadrado[0], cuadrado[1], 30, 30);
+		context.fillRect(cuadrado1[0], cuadrado1[1], 30, 30);
 		dibuja1(context);
 	}
 		
