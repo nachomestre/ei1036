@@ -25,6 +25,12 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 //La siguiente sentencia activaria la acción para todos los usuarios.
 //add_action('admin_post_nopriv_my_datos_2', 'my_datos_2');
 $table="MP2_GrupoCliente001";
+
+$MP2_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
+$query="DROP TABLE $tabla";
+$consult = $MP2_pdo->prepare($query);
+$consult->execute (array());
+
 include(plugin_dir_path( __FILE__ ).'include/functions.php');
 
 register_activation_hook( __FILE__, 'MP2_Ejecutar_crearT');
