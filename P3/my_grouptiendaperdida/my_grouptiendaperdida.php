@@ -33,7 +33,7 @@ register_activation_hook( __FILE__, 'MP2_Ejecutar_crearT');
 function MP2_Ejecutar_crearT(){
     MP2_CrearT("MP2_GrupoCliente001");
 }
-//add_action('admin_post_nopriv_my_datos_2', 'MP2_my_datos_2'); //no autentificados
-add_action('admin_post_my_datos_2', "MP2_my_datos_2"); 
+add_action('admin_post_nopriv_my_datos_2', 'MP2_my_datos_2'); //no autentificados
+//add_action('admin_post_my_datos_2', "MP2_my_datos_2"); 
 
 ?>
