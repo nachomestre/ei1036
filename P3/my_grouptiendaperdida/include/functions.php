@@ -21,10 +21,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 //Funcion instalación plugin. Crea tabla
 function MP2_CrearT($tabla){
-    //$MP2_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
-    //$query="DROP TABLE $tabla";
-    //$consult = $MP2_pdo->prepare($query);
-    //$consult->execute (array());
     $MP2_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
     $query="CREATE TABLE IF NOT EXISTS $tabla (person_id INT(11) NOT NULL AUTO_INCREMENT, nombre VARCHAR(100) UNIQUE,  email VARCHAR(100),  foto_file VARCHAR(200), clienteMail VARCHAR(100),  PRIMARY KEY(person_id))";
     $consult = $MP2_pdo->prepare($query);
@@ -86,14 +82,8 @@ function MP2_Register_Form($MP2_user , $user_email)
 //Esta función realizará distintas acciones en función del valor del parámetro
 //$_REQUEST['proceso'], o sea se activara al llamar a url semejantes a 
 //https://host/wp-admin/admin-post.php?action=my_datos_2&proceso=r 
-function MP2_my_datos_2()
-{
-	get_header();
-	    echo '<div class="wrap">';
-	var_dump($_REQUEST);
-}
 
-function MP2_my_datos_3()
+function MP2_my_datos_2()
 { 
     global $user_ID , $user_email,$table;
     
@@ -137,7 +127,6 @@ function MP2_my_datos_3()
             		{ echo "foto subida con éxito";
             } }
 	    $fotoURL = $_POST['userName'];
-	    
             $query = "INSERT INTO $table (nombre, email,clienteMail,foto_file) VALUES (?,?,?,?)";         
             $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'], $fotoURL);
             //$pdo1 = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
@@ -211,6 +200,6 @@ function MP2_my_datos_3()
 
     get_footer();
     }
-//add_action('admin_post_nopriv_my_datos_3', 'my_datos_3');
-//add_action('admin_post_my_datos_3', 'my_datos_3'); //no autentificados
+//add_action('admin_post_nopriv_my_datos_2', 'my_datos_2');
+//add_action('admin_post_my_datos_2', 'my_datos_2'); //no autentificados
 ?>
