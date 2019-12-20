@@ -131,6 +131,7 @@ function MP2_my_datos_2()
             		{ echo "foto subida con éxito";
             } }
 	    $fotoURL = $_POST['userName'];
+	    
             $query = "INSERT INTO $table (nombre, email,clienteMail,foto_file) VALUES (?,?,?,?)";         
             $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'], $fotoURL);
             //$pdo1 = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
