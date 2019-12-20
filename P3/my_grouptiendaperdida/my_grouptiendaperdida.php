@@ -25,7 +25,6 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 //La siguiente sentencia activaria la acción para todos los usuarios.
 //add_action('admin_post_nopriv_my_datos_2', 'my_datos_2');
 $table="MP2_GrupoCliente001";
-
 include(plugin_dir_path( __FILE__ ).'include/functions.php');
 
 register_activation_hook( __FILE__, 'MP2_Ejecutar_crearT');
@@ -36,4 +35,5 @@ function MP2_Ejecutar_crearT(){
 }
 //add_action('admin_post_nopriv_my_datos_2', 'MP2_my_datos_2'); //no autentificados
 add_action('admin_post_my_datos_2', "MP2_my_datos_2"); 
+
 ?>
