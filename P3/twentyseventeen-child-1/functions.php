@@ -51,7 +51,7 @@
 	add_action( 'wp_enqueue_scripts', 'add_theme_scripts1' );
 
 
-/*
+
 	// Registramos el widget
 	function load_my_widget() {
 		register_widget( 'my_widget1' );
@@ -116,5 +116,5 @@
 	return $instance;
 	}
 	} // La clase wp_widget termina aquí
-*/
+
 ?>
