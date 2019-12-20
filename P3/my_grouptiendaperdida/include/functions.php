@@ -87,7 +87,7 @@ function MP2_Register_Form($MP2_user , $user_email)
 //$_REQUEST['proceso'], o sea se activara al llamar a url semejantes a 
 //https://host/wp-admin/admin-post.php?action=my_datos_2&proceso=r 
 
-function MP2_my_datos_2()
+function MP2_my_datos_3()
 { 
     global $user_ID , $user_email,$table;
     
@@ -204,6 +204,6 @@ function MP2_my_datos_2()
 
     get_footer();
     }
-//add_action('admin_post_nopriv_my_datos_2', 'my_datos_2');
-//add_action('admin_post_my_datos_2', 'my_datos_2'); //no autentificados
+//add_action('admin_post_nopriv_my_datos_3', 'my_datos_3');
+//add_action('admin_post_my_datos_3', 'my_datos_3'); //no autentificados
 ?>
