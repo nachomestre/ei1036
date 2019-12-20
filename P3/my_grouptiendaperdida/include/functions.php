@@ -88,6 +88,8 @@ function MP2_Register_Form($MP2_user , $user_email)
 //https://host/wp-admin/admin-post.php?action=my_datos_2&proceso=r 
 function MP2_my_datos_2()
 {
+	get_header();
+	    echo '<div class="wrap">';
 	var_dump($_REQUEST);
 }
 
