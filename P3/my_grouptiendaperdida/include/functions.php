@@ -86,8 +86,12 @@ function MP2_Register_Form($MP2_user , $user_email)
 //Esta función realizará distintas acciones en función del valor del parámetro
 //$_REQUEST['proceso'], o sea se activara al llamar a url semejantes a 
 //https://host/wp-admin/admin-post.php?action=my_datos_2&proceso=r 
-
 function MP2_my_datos_2()
+{
+	var_dump($_REQUEST);
+}
+
+function MP2_my_datos_3()
 { 
     global $user_ID , $user_email,$table;
     
